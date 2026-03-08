@@ -1,48 +1,61 @@
-const totalNumeros = 1000;
-const miTelefono = "584122415696";
-
-// --- AQUÍ ANOTAS LOS NÚMEROS VENDIDOS ---
-// Ejemplo: si vendiste el 5, el 500 y el 720, ponlos así: [5, 500, 720]
+// --- GESTIÓN DE VENTAS ---
+// Añade aquí los números que ya te pagaron. Ejemplo: [1, 50, 999]
 const vendidosOficiales = []; 
 
-const contenedor = document.getElementById('contenedor-rifa');
-const buscador = document.getElementById('buscador');
+// --- CONFIGURACIÓN ---
+const totalNumeros = 1000;
+const miTelefono = "584122415696";
+let numeroActual = null;
 
+const contenedor = document.getElementById('contenedor-rifa');
+const capaPago = document.getElementById('capa-pago');
+const displayNum = document.getElementById('num-pago');
+
+// Generar la cuadrícula de 1000 números
 for (let i = 1; i <= totalNumeros; i++) {
     let div = document.createElement('div');
     div.classList.add('numero');
     div.id = `n-${i}`;
     div.innerText = i;
 
-    // Si el número está en tu lista de vendidos, se bloquea
+    // VERIFICACIÓN: Si está en la lista de vendidos, se bloquea
     if (vendidosOficiales.includes(i)) {
         div.classList.add('vendido');
+        // No le asignamos la función click para que no abra el pago
     } else {
-        div.onclick = () => confirmar(i, div);
+        div.onclick = () => abrirPago(i);
     }
     
     contenedor.appendChild(div);
 }
 
-function confirmar(num, el) {
-    const msg = encodeURIComponent(`¡Hola! Quiero el número ${num} de la rifa.`);
-    if(confirm(`¿Apartar el número ${num}?`)) {
-        window.open(`https://wa.me/${miTelefono}?text=${msg}`, '_blank');
-        
-        // Efecto visual inmediato para que el usuario vea que lo tocó
-        el.style.backgroundColor = "#25d366";
-        el.style.color = "white";
-        el.innerText = "✓";
-    }
+// Funciones de la Ventana de Pago
+function abrirPago(num) {
+    numeroActual = num;
+    displayNum.innerText = num;
+    capaPago.classList.remove('oculto');
 }
 
-// Buscador
-buscador.oninput = () => {
-    const n = buscador.value;
+function cerrarPago() {
+    capaPago.classList.add('oculto');
+}
+
+function irAWhatsapp() {
+    const texto = encodeURIComponent(
+        `¡Hola! Seleccioné el número ${numeroActual}.\n` +
+        `Aquí adjunto el capture del pago móvil para confirmar mi participación.`
+    );
+    window.open(`https://wa.me/${miTelefono}?text=${texto}`, '_blank');
+    cerrarPago();
+}
+
+// Buscador (Optimizado)
+document.getElementById('buscador').oninput = (e) => {
+    const n = e.target.value;
     const el = document.getElementById(`n-${n}`);
     if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "center" });
-        el.classList.add('resaltado');
-        setTimeout(() => el.classList.remove('resaltado'), 2000);
+        el.style.border = "3px solid #25d366";
+        setTimeout(() => el.style.border = "1px solid #ddd", 2000);
     }
 };
