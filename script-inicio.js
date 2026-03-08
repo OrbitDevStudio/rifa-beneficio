@@ -1,7 +1,9 @@
 function abrirDonar() {
-document.getElementById('modal-donar').style.display = 'block';
+    // Esto quita la clase que oculta el recuadro
+    document.getElementById('modal-donar').style.display = 'block';
 }
 
 function cerrarDonar() {
-document.getElementById('modal-donar').style.display = 'none';
+    // Esto vuelve a ocultar el recuadro
+    document.getElementById('modal-donar').style.display = 'none';
 }
