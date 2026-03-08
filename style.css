@@ -1,25 +1,27 @@
-body { font-family: sans-serif; text-align: center; margin: 0; background: #f9f9f9; }
-header { padding: 20px; background: white; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
-
-#contenedor-rifa { 
-    display: grid; 
-    grid-template-columns: repeat(5, 1fr); /* 5 números por fila, ideal para móvil */
-    gap: 4px; 
-    padding: 10px;
-    max-width: 600px;
-    margin: auto;
+/* Cuando el número ya está vendido (Tú lo marcas en el script) */
+.vendido { 
+    background-color: #e0e0e0 !important; 
+    color: #a0a0a0 !important; 
+    text-decoration: line-through;
+    cursor: not-allowed;
+    border: 1px solid #ccc !important;
 }
 
-.numero { 
-    aspect-ratio: 1/1;
-    display: flex; align-items: center; justify-content: center;
-    background: white; border: 1px solid #ddd; border-radius: 4px;
-    font-size: 13px; font-weight: bold;
+/* Efecto visual al tocar (Feedback) */
+.numero:active {
+    transform: scale(0.9);
+    background-color: #25d366;
+    color: white;
 }
 
-.vendido { background: #ff5252 !important; color: white; border: none; }
+/* Resalte cuando se usa el buscador */
+.resaltado {
+    border: 3px solid #25d366 !important;
+    animation: pulso 1s infinite;
+}
 
-#buscador {
-    width: 80%; padding: 10px; margin-top: 10px;
-    border-radius: 20px; border: 1px solid #ccc; font-size: 16px;
+@keyframes pulso {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
