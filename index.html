@@ -1,21 +1,40 @@
-<main>
-    <div id="contenedor-rifa"></div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rifa Solidaria - Una Prótesis para un Sueño</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Rifa Solidaria</h1>
+        <p>Ayúdanos con la prótesis de pierna</p>
+        <input type="number" id="buscador" placeholder="Busca tu número (1-1000)">
+    </header>
 
-    <div id="capa-pago" class="oculto">
-        <div class="ventana-pago">
-            <h3>Número Seleccionado: <span id="num-pago">0</span></h3>
-            <div class="detalles-banco">
-                <p><strong>PAGO MÓVIL:</strong></p>
-                <p>Banco: 0102 (Venezuela)</p>
-                <p>Cédula: V-12.345.678</p>
-                <p>Teléfono: 04122415696</p>
-                <hr>
-                <p>Monto: $1 (o al cambio del día)</p>
+    <main>
+        <div id="contenedor-rifa"></div>
+
+        <div id="capa-pago" class="oculto">
+            <div class="ventana-pago">
+                <h3>Número Seleccionado: <span id="num-pago">0</span></h3>
+                <div class="detalles-banco">
+                    <p><strong>PAGO MÓVIL:</strong></p>
+                    <p>Banco: 0102 (Venezuela)</p>
+                    <p>Cédula: V-12.345.678</p>
+                    <p>Teléfono: 04122415696</p>
+                    <hr>
+                    <p>Monto: $1 (o al cambio del día)</p>
+                </div>
+                <button class="btn-enviar" onclick="irAWhatsapp()">
+                    ✅ Ya pagué, enviar comprobante
+                </button>
+                <button class="btn-cerrar" onclick="cerrarPago()">Elegir otro número</button>
             </div>
-            <button class="btn-enviar" onclick="irAWhatsapp()">
-                ✅ Ya pagué, enviar comprobante
-            </button>
-            <button class="btn-cerrar" onclick="cerrarPago()">Elegir otro número</button>
         </div>
-    </div>
-</main>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
