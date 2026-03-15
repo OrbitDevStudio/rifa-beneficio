@@ -1,7 +1,7 @@
-/* --- CONFIGURACIÓN DE FUENTES Y FONDO --- */
+/* --- BASE Y FONDO --- */
 * { 
     box-sizing: border-box; 
-    font-family: 'Poppins', sans-serif; /* Fuente principal suave */
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -12,7 +12,6 @@ body {
     color: white;
 }
 
-/* Efecto de puntos en el fondo */
 body::before {
     content: "";
     position: fixed;
@@ -31,7 +30,7 @@ body::before {
 }
 
 .inicio-header h1 {
-    font-family: 'Montserrat', sans-serif; /* Fuente fuerte para títulos */
+    font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     font-size: 26px;
     margin: 0;
@@ -55,6 +54,8 @@ body::before {
     width: 90%;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     color: #333;
+    position: relative;
+    z-index: 10;
 }
 
 .foto-principal {
@@ -62,35 +63,21 @@ body::before {
     border-radius: 20px;
     transition: transform 0.3s ease;
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.foto-principal:hover {
-    transform: scale(1.04);
-}
+.foto-principal:hover { transform: scale(1.04); }
 
-.historia p {
-    font-size: 16px;
-    line-height: 1.6;
-    text-align: center;
-    color: #555;
-    margin: 20px 0;
-}
+/* --- PROGRESO Y STATS --- */
+.meta-progreso { text-align: center; margin-top: 20px; }
 
-/* --- BARRA DE PROGRESO --- */
-.meta-progreso h3 {
-    font-family: 'Montserrat', sans-serif;
-    color: #00416A;
-    font-size: 20px;
-    text-align: center;
-}
+.meta-progreso h3 { font-family: 'Montserrat', sans-serif; color: #00416A; }
 
 .barra-fondo {
     background: #eee;
     height: 35px;
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid #ddd;
+    margin-bottom: 15px;
 }
 
 .barra-llena {
@@ -102,6 +89,8 @@ body::before {
     justify-content: center;
     font-weight: bold;
 }
+
+.estadisticas p { margin: 5px 0; font-size: 15px; color: #555; }
 
 /* --- BOTONES --- */
 .btn-principal {
@@ -117,13 +106,8 @@ body::before {
     border: none;
     width: 100%;
     font-size: 17px;
+    margin-top: 20px;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-principal:hover {
-    background: #0056b3;
-    transform: translateY(-2px);
 }
 
 .btn-donar {
@@ -135,16 +119,18 @@ body::before {
     border-radius: 15px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 16px;
     margin-top: 15px;
     cursor: pointer;
 }
 
-/* --- MODALES (BIENVENIDA Y DONAR) --- */
+/* --- MODALES --- */
 .modal-estructura {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: 10000;
+    display: none; /* JS controla esto */
+    align-items: center;
+    justify-content: center;
 }
 
 .capa-oscura {
@@ -155,8 +141,6 @@ body::before {
 
 .tarjeta-mensaje {
     position: relative;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
     background: white;
     padding: 40px 30px;
     border-radius: 30px;
@@ -164,15 +148,9 @@ body::before {
     max-width: 400px;
     text-align: center;
     color: #333;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
 }
 
-.icono-corazon { font-size: 60px; margin-bottom: 10px; }
-
-.tarjeta-mensaje h2, .tarjeta-mensaje h3 {
-    font-family: 'Montserrat', sans-serif;
-    margin-top: 0;
-}
+.icono-corazon { font-size: 50px; margin-bottom: 10px; }
 
 .datos-banco {
     background: #f8f9fa;
@@ -180,7 +158,7 @@ body::before {
     border-radius: 15px;
     border-left: 5px solid #007bff;
     text-align: left;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
 .btn-cerrar {
