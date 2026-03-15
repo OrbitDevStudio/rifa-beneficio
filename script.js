@@ -1,5 +1,5 @@
 // ===== LISTA DE NÚMEROS VENDIDOS (debe ser la misma que en script-inicio.js) =====
-const vendidosOficiales = [5, 12, 120, 450, 800]; // ¡Actualiza aquí también!
+const vendidosOficiales = []; // ¡Actualiza aquí también!
 const totalNumeros = 1000;
 const miTelefono = "584122415696"; // <--- CAMBIA AQUÍ A TU NÚMERO REAL (código país + número sin 0)
 
@@ -134,7 +134,7 @@ function iniciarContador() {
 
 // COPIAR DATOS BANCARIOS (NUEVO)
 function copiarDatos() {
-    const datos = `Banco: 0102 (Venezuela)\nCédula: V-12.345.678\nTeléfono: 0412-2415696\nMonto: $1 (cambio del día)`;
+    const datos = `Banco: 0191 (BNC)\nCédula: V-15.994.903\nTeléfono: 0412-8433443\nMonto: $1 (cambio del día)`;
     navigator.clipboard.writeText(datos).then(() => {
         alert('Datos copiados al portapapeles');
     }).catch(() => {
