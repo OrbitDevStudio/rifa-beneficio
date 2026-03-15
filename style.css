@@ -1,15 +1,16 @@
 /* ===== VARIABLES Y RESET ===== */
 :root {
     --primary: #003399;        /* Azul Rey */
-    --secondary: #001a4d;       /* Azul Marino oscuro */
+    --secondary: #001a4d;       /* Azul Marino */
     --accent: #FFD700;          /* Amarillo dorado */
-    --success: #25d366;         /* Verde WhatsApp (se mantiene) */
-    --danger: #ff6b6b;          /* Rojo (se mantiene) */
-    --dark: #001a4d;            /* Azul Marino para textos oscuros */
-    --light: #f0f8ff;           /* Azul muy claro */
+    --success: #25d366;         
+    --danger: #ff6b6b;          
+    --dark: #001a4d;            
+    --light: #f0f8ff;           
     --glass-bg: rgba(255, 255, 255, 0.15);
     --glass-border: rgba(255, 255, 255, 0.2);
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +19,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #003399 0%, #001a4d 100%);
     min-height: 100vh;
     color: #333;
     line-height: 1.6;
@@ -52,6 +53,32 @@ body::before {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
+/* ===== MODAL DE ESQUINA ===== */
+.modal-esquina {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 10000;
+    animation: slideInRight 0.5s ease;
+}
+
+.modal-esquina .tarjeta-mensaje {
+    max-width: 320px;
+    margin: 0;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 /* ===== HEADER INICIO ===== */
 .inicio-header {
     position: relative;
@@ -70,7 +97,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     z-index: -1;
 }
@@ -119,7 +146,7 @@ body::before {
     z-index: 10;
 }
 
-/* ===== FOTO CON EFECTO ===== */
+/* ===== FOTO ===== */
 .seccion-foto {
     text-align: center;
     margin-bottom: 30px;
@@ -131,10 +158,11 @@ body::before {
 }
 
 .foto-principal {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
+    background: white;
     border: 5px solid white;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -310,7 +338,7 @@ body::before {
 
 .btn-principal:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(65, 88, 208, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 51, 153, 0.4);
 }
 
 .btn-secundario {
@@ -348,6 +376,10 @@ body::before {
     animation: fadeIn 0.3s ease;
 }
 
+.oculto {
+    display: none !important;
+}
+
 .capa-oscura {
     position: absolute;
     width: 100%;
@@ -368,7 +400,7 @@ body::before {
 
 /* ===== PÁGINA RIFA ===== */
 .pagina-rifa {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: linear-gradient(135deg, #003399 0%, #001a4d 100%);
     color: white;
 }
 
@@ -409,7 +441,7 @@ body::before {
     font-family: 'Clash Display', sans-serif;
     font-size: 2rem;
     font-weight: 700;
-    background: linear-gradient(45deg, #FFCC70, #FF8C00);
+    background: linear-gradient(45deg, #FFD700, #FFA500);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: block;
@@ -432,7 +464,7 @@ body::before {
 }
 
 .rifa-titulo i {
-    color: #FFCC70;
+    color: #FFD700;
     font-size: 1.8rem;
 }
 
@@ -671,6 +703,18 @@ body::before {
     }
 }
 
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .titulo-gigante {
@@ -699,5 +743,15 @@ body::before {
         flex-direction: column;
         align-items: flex-start;
         padding-left: 30px;
+    }
+    
+    .modal-esquina {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+    }
+    
+    .modal-esquina .tarjeta-mensaje {
+        max-width: 100%;
     }
 }
