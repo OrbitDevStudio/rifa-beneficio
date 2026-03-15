@@ -1,13 +1,5 @@
 /* --- CONFIGURACIÓN BASE --- */
 * { box-sizing: border-box; }
-body {
-    /* Mezcla de Azul Rey y Azul Marino con inclinación */
-    background: linear-gradient(135deg, #00416A 0%, #000080 100%);
-    background-attachment: fixed; /* Mantiene el fondo quieto al hacer scroll */
-    min-height: 100vh;
-    margin: 0;
-    color: white; /* Cambia el texto a blanco para que resalte */
-}
 /* Esto añade una textura de puntos finos sobre el degradado */
 body::before {
     content: "";
