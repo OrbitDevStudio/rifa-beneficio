@@ -1,12 +1,11 @@
-/* ===== VARIABLES Y RESET ===== */
 :root {
     --primary: #003399;        /* Azul Rey */
     --secondary: #001a4d;       /* Azul Marino */
-    --accent: #FFD700;          /* Amarillo dorado */
-    --success: #25d366;         
-    --danger: #ff6b6b;          
-    --dark: #001a4d;            
-    --light: #f0f8ff;           
+    --accent: #FFD700;          /* Amarillo */
+    --success: #25d366;
+    --danger: #ff6b6b;
+    --dark: #001a4d;
+    --light: #f0f8ff;
     --glass-bg: rgba(255, 255, 255, 0.15);
     --glass-border: rgba(255, 255, 255, 0.2);
 }
@@ -26,34 +25,7 @@ body {
     position: relative;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/></svg>') repeat;
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* ===== UTILIDADES ===== */
-.glass-effect {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.glass-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-/* ===== MODAL DE ESQUINA ===== */
+/* MODAL ESQUINA */
 .modal-esquina {
     position: fixed;
     bottom: 30px;
@@ -69,17 +41,11 @@ body::before {
 }
 
 @keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
 
-/* ===== HEADER INICIO ===== */
+/* HEADER INICIO */
 .inicio-header {
     position: relative;
     height: 300px;
@@ -137,16 +103,19 @@ body::before {
     color: var(--accent);
 }
 
-/* ===== CONTENEDOR PRINCIPAL ===== */
+/* CONTENEDOR PRINCIPAL */
 .contenedor-inicio {
     max-width: 500px;
     margin: -80px auto 50px;
     padding: 40px;
     position: relative;
     z-index: 10;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
 
-/* ===== FOTO ===== */
+/* FOTO */
 .seccion-foto {
     text-align: center;
     margin-bottom: 30px;
@@ -165,7 +134,7 @@ body::before {
     background: white;
     border: 5px solid white;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.5s;
 }
 
 .foto-principal:hover {
@@ -186,7 +155,6 @@ body::before {
     justify-content: center;
     font-size: 1.2rem;
     border: 3px solid white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .historia-texto {
@@ -196,7 +164,6 @@ body::before {
     background: #f8f9fa;
     border-radius: 20px;
     margin-top: 20px;
-    position: relative;
     font-style: italic;
 }
 
@@ -206,7 +173,7 @@ body::before {
     font-size: 1.5rem;
 }
 
-/* ===== BARRA DE PROGRESO ===== */
+/* BARRA PROGRESO */
 .meta-progreso {
     margin: 30px 0;
 }
@@ -227,7 +194,6 @@ body::before {
     border-radius: 50px;
     overflow: hidden;
     margin-bottom: 20px;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .barra-llena {
@@ -240,24 +206,6 @@ body::before {
     font-weight: bold;
     font-size: 0.9rem;
     transition: width 1s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.barra-llena::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    animation: shine 2s infinite;
-}
-
-@keyframes shine {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
 }
 
 .estadisticas-grid {
@@ -271,11 +219,6 @@ body::before {
     padding: 15px;
     border-radius: 15px;
     text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
 }
 
 .stat-numero {
@@ -291,7 +234,7 @@ body::before {
     color: #777;
 }
 
-/* ===== BOTONES ===== */
+/* BOTONES */
 .acciones-grid {
     display: grid;
     gap: 15px;
@@ -314,26 +257,6 @@ body::before {
     gap: 10px;
     text-decoration: none;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-principal::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.btn-principal:hover::before {
-    width: 300px;
-    height: 300px;
 }
 
 .btn-principal:hover {
@@ -359,10 +282,9 @@ body::before {
 .btn-secundario:hover {
     background: var(--primary);
     color: white;
-    border: 2px solid var(--primary);
 }
 
-/* ===== MODALES ===== */
+/* MODALES */
 .modal-estructura {
     position: fixed;
     top: 0;
@@ -373,7 +295,6 @@ body::before {
     align-items: center;
     justify-content: center;
     z-index: 10000;
-    animation: fadeIn 0.3s ease;
 }
 
 .oculto {
@@ -398,7 +319,7 @@ body::before {
     animation: slideUp 0.4s ease;
 }
 
-/* ===== PÁGINA RIFA ===== */
+/* PAGINA RIFA */
 .pagina-rifa {
     background: linear-gradient(135deg, #003399 0%, #001a4d 100%);
     color: white;
@@ -406,7 +327,6 @@ body::before {
 
 .rifa-header {
     padding: 30px;
-    position: relative;
 }
 
 .header-top {
@@ -425,16 +345,10 @@ body::before {
     padding: 10px 20px;
     background: rgba(255,255,255,0.1);
     border-radius: 50px;
-    transition: all 0.3s ease;
 }
 
 .btn-volver:hover {
     background: rgba(255,255,255,0.2);
-    transform: translateX(-5px);
-}
-
-.precio-destacado {
-    text-align: right;
 }
 
 .precio-dolar {
@@ -444,12 +358,6 @@ body::before {
     background: linear-gradient(45deg, #FFD700, #FFA500);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: block;
-}
-
-.precio-bsf {
-    font-size: 0.9rem;
-    opacity: 0.8;
 }
 
 .rifa-titulo {
@@ -465,10 +373,9 @@ body::before {
 
 .rifa-titulo i {
     color: #FFD700;
-    font-size: 1.8rem;
 }
 
-/* ===== BUSCADOR ===== */
+/* BUSCADOR */
 .buscador-wrapper {
     position: relative;
     max-width: 400px;
@@ -491,21 +398,14 @@ body::before {
     background: rgba(255,255,255,0.1);
     color: white;
     font-size: 1rem;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
 }
 
 #buscador:focus {
     outline: none;
-    border-color: var(--success);
-    background: rgba(255,255,255,0.15);
+    border: 2px solid var(--success);
 }
 
-#buscador::placeholder {
-    color: rgba(255,255,255,0.5);
-}
-
-/* ===== LEYENDAS ===== */
+/* LEYENDAS */
 .estado-leyendas {
     display: flex;
     justify-content: center;
@@ -527,7 +427,6 @@ body::before {
 
 .cuadro.disponible {
     background: white;
-    box-shadow: 0 0 15px rgba(255,255,255,0.3);
 }
 
 .cuadro.vendido {
@@ -539,7 +438,7 @@ body::before {
     background: var(--success);
 }
 
-/* ===== GRID DE NÚMEROS ===== */
+/* GRID DE NUMEROS - ESTO ES LO CRITICO */
 .numeros-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
@@ -562,24 +461,7 @@ body::before {
     font-family: 'Clash Display', sans-serif;
     color: white;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-}
-
-.numero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
-}
-
-.numero:hover::before {
-    left: 100%;
+    transition: all 0.3s;
 }
 
 .numero:hover {
@@ -593,13 +475,6 @@ body::before {
     border-color: rgba(255, 107, 107, 0.5);
     color: rgba(255,255,255,0.5);
     cursor: not-allowed;
-    filter: grayscale(0.5);
-}
-
-.numero.vendido:hover {
-    transform: none;
-    border-color: rgba(255, 107, 107, 0.5);
-    box-shadow: none;
 }
 
 .numero.seleccionado {
@@ -608,7 +483,7 @@ body::before {
     box-shadow: 0 0 30px var(--success);
 }
 
-/* ===== MODAL DE PAGO ===== */
+/* MODAL PAGO */
 .pago-card {
     max-width: 450px;
 }
@@ -639,14 +514,7 @@ body::before {
     border-radius: 20px;
     padding: 20px;
     margin: 20px 0;
-}
-
-.detalles-banco h4 {
-    color: var(--dark);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    color: #333;
 }
 
 .banco-grid {
@@ -675,74 +543,23 @@ body::before {
     gap: 10px;
 }
 
-/* ===== ANIMACIONES ===== */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
+/* ANIMACIONES */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    .titulo-gigante {
-        font-size: 2.5rem;
-    }
-    
-    .titulo-gigante span {
-        font-size: 1.3rem;
-    }
-    
-    .rifa-titulo {
-        font-size: 1.8rem;
-    }
-    
     .numeros-grid {
         grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
         gap: 10px;
         padding: 20px;
-    }
-    
-    .numero {
-        font-size: 1.2rem;
-    }
-    
-    .estado-leyendas {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 30px;
     }
     
     .modal-esquina {
