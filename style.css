@@ -38,6 +38,7 @@ body {
 /* Efecto al pasar el mouse (o tocar en el celular) */
 .foto-principal:hover {
     transform: scale(1.05); /* Zoom del 5% */
+    filter: brightness(1.1); /* Le da un toque de luz */
     box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* La sombra crece */
 }
 .historia { 
