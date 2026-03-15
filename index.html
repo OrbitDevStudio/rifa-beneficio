@@ -3,79 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Un Paso por la Vida - Inicio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Un Paso por la Vida - Ayúdanos a Caminar</title>
+    <!-- Fuentes modernas: Clash Display e Inter -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=inter@400,500,600,700,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="inicio-header">
-        <h1>1000 números de Esperanza ¡Unidos por mi Prótesis!</h1>
-        <p>Valencia, Carabobo</p>
-    </header>
-
+    <!-- MODAL DE BIENVENIDA MEJORADO -->
     <div id="bienvenida-modal" class="modal-estructura" style="display: flex;">
         <div class="capa-oscura"></div>
-        <div class="tarjeta-mensaje">
-            <div class="icono-corazon">❤️</div>
-            <h2>¡Gracias por visitarnos!</h2>
-            <p>Esta rifa es para costear la prótesis de pierna de <strong>Alcides Bolivar</strong>. Tu apoyo es fundamental.</p>
-            <button class="btn-principal" onclick="cerrarBienvenida()">¡Quiero ayudar!</button>
+        <div class="tarjeta-mensaje glass-effect">
+            <div class="icono-corazon">
+                <i class="fas fa-heart-pulse"></i>
+            </div>
+            <h2>¡Gracias por tu visita!</h2>
+            <p>Esta rifa es para costear la prótesis de pierna de <strong>Alcides Bolívar</strong>. Cada número es un paso hacia su nueva vida.</p>
+            <button class="btn-principal" onclick="cerrarBienvenida()">
+                <i class="fas fa-hands-helping"></i> Quiero ayudar
+            </button>
         </div>
     </div>
 
-    <main class="contenedor-inicio">
+    <!-- HEADER CON EFECTO PARALLAX -->
+    <header class="inicio-header">
+        <div class="header-content">
+            <h1 class="titulo-gigante">1000<span> números de esperanza</span></h1>
+            <p class="ubicacion"><i class="fas fa-map-pin"></i> Valencia, Carabobo</p>
+        </div>
+        <div class="header-overlay"></div>
+    </header>
+
+    <main class="contenedor-inicio glass-card">
+        <!-- SECCIÓN DE FOTO Y HISTORIA -->
         <section class="seccion-foto">
-            <img src="img/beneficiario.png" alt="Campaña Solidaria" class="foto-principal">
+            <div class="foto-wrapper">
+                <img src="img/beneficiario.png" alt="Alcides Bolívar" class="foto-principal">
+                <div class="foto-badge">
+                    <i class="fas fa-wheelchair"></i>
+                </div>
+            </div>
             <div class="historia">
-                <p>Ayúdanos con la prótesis de pierna. Cada número es una nueva oportunidad para volver a caminar.</p>
+                <p class="historia-texto">
+                    <i class="fas fa-quote-left"></i>
+                    Ayúdanos a devolverle la movilidad a Alcides. Con tu apoyo, podrá volver a caminar.
+                </p>
             </div>
         </section>
 
+        <!-- SECCIÓN DE META CON BARRA DE PROGRESO ANIMADA -->
         <section class="meta-progreso">
-            <h3>Progreso de la Rifa</h3>
+            <h3 class="meta-titulo">
+                <i class="fas fa-chart-line"></i> 
+                Progreso de la campaña
+            </h3>
+            
             <div class="barra-fondo">
-                <div class="barra-llena" style="width: 0%;">0%</div> 
+                <div class="barra-llena" id="barra-progreso" style="width: 0%;">0%</div>
             </div>
-            <div class="estadisticas">
-                <p><strong>Vendidos:</strong> 0 números</p>
-                <p><strong>Faltan:</strong> 1000 números</p>
-                <p><strong>Meta:</strong> 1000 números</p>
+            
+            <div class="estadisticas-grid">
+                <div class="stat-card">
+                    <span class="stat-numero" id="vendidos-num">0</span>
+                    <span class="stat-label">Vendidos</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-numero" id="faltan-num">1000</span>
+                    <span class="stat-label">Disponibles</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-numero">1000</span>
+                    <span class="stat-label">Meta</span>
+                </div>
             </div>
         </section>
 
-        <section class="acciones">
-            <a href="rifa.html" class="btn-principal">🎟️ Ver Números y Comprar</a>
-            <button class="btn-donar" onclick="abrirDonar()">❤️ Solo quiero Donar</button>
+        <!-- BOTONES DE ACCIÓN CON EFECTOS -->
+        <section class="acciones-grid">
+            <a href="rifa.html" class="btn-principal btn-grande">
+                <i class="fas fa-ticket-alt"></i>
+                <span>Ver números y comprar</span>
+                <small>$1 c/u</small>
+            </a>
+            <button class="btn-secundario" onclick="abrirDonar()">
+                <i class="fas fa-gift"></i>
+                <span>Solo quiero donar</span>
+            </button>
         </section>
     </main>
 
+    <!-- MODAL DE DONACIÓN MEJORADO -->
     <div id="modal-donar" class="modal-estructura" style="display: none;">
         <div class="capa-oscura" onclick="cerrarDonar()"></div>
-        <div class="tarjeta-mensaje">
-            <h3>Datos para Donar</h3>
+        <div class="tarjeta-mensaje glass-effect">
+            <h3><i class="fas fa-hand-holding-heart"></i> Datos para donar</h3>
             <div class="datos-banco">
-                <p><strong>PAGO MÓVIL:</strong><br>
-                Banco: 0109 (Mercantil)<br>
-                Cédula: V-15.994.903<br>
-                Teléfono: 04128433443</p>
+                <div class="banco-item">
+                    <i class="fas fa-university"></i>
+                    <div>
+                        <strong>PAGO MÓVIL</strong>
+                        <p>Banco Mercantil (0109)</p>
+                    </div>
+                </div>
+                <div class="banco-item">
+                    <i class="fas fa-id-card"></i>
+                    <div>
+                        <strong>Cédula</strong>
+                        <p>V-15.994.903</p>
+                    </div>
+                </div>
+                <div class="banco-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Teléfono</strong>
+                        <p>0412-8433443</p>
+                    </div>
+                </div>
             </div>
-            <button class="btn-cerrar" onclick="cerrarDonar()">Regresar</button>
+            <button class="btn-cerrar" onclick="cerrarDonar()">
+                <i class="fas fa-arrow-left"></i> Regresar
+            </button>
         </div>
     </div>
 
-    <script>
-        function cerrarBienvenida() {
-            document.getElementById('bienvenida-modal').style.display = 'none';
-        }
-
-        function abrirDonar() {
-            document.getElementById('modal-donar').style.display = 'flex';
-        }
-
-        function cerrarDonar() {
-            document.getElementById('modal-donar').style.display = 'none';
-        }
-    </script>
+    <script src="script-inicio.js"></script>
 </body>
 </html>
