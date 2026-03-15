@@ -14,12 +14,12 @@
         <p>Valencia, Carabobo</p>
     </header>
 
-    <div id="bienvenida-modal" class="modal-estructura">
+    <div id="bienvenida-modal" class="modal-estructura" style="display: flex;">
         <div class="capa-oscura"></div>
         <div class="tarjeta-mensaje">
             <div class="icono-corazon">❤️</div>
             <h2>¡Gracias por visitarnos!</h2>
-            <p>Esta rifa es para costear la prótesis de pierna de un gran guerrero: <strong>Alcides Bolivar</strong>. Cada granito de arena cuenta para volver a caminar.</p>
+            <p>Esta rifa es para costear la prótesis de pierna de <strong>Alcides Bolivar</strong>. Tu apoyo es fundamental.</p>
             <button class="btn-principal" onclick="cerrarBienvenida()">¡Quiero ayudar!</button>
         </div>
     </div>
@@ -38,6 +38,8 @@
                 <div class="barra-llena" style="width: 0%;">0%</div> 
             </div>
             <div class="estadisticas">
+                <p><strong>Vendidos:</strong> 0 números</p>
+                <p><strong>Faltan:</strong> 1000 números</p>
                 <p><strong>Meta:</strong> 1000 números</p>
             </div>
         </section>
@@ -63,17 +65,12 @@
     </div>
 
     <script>
-        // Al cargar la página, se muestra el mensaje de bienvenida
-        window.onload = function() {
-            document.getElementById('bienvenida-modal').style.display = 'block';
-        };
-
         function cerrarBienvenida() {
             document.getElementById('bienvenida-modal').style.display = 'none';
         }
 
         function abrirDonar() {
-            document.getElementById('modal-donar').style.display = 'block';
+            document.getElementById('modal-donar').style.display = 'flex';
         }
 
         function cerrarDonar() {
