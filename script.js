@@ -1,7 +1,7 @@
 // --- LISTA DE NÚMEROS VENDIDOS ---
 const vendidosOficiales = [5, 12, 120, 450, 800]; 
 const totalNumeros = 1000;
-const miTelefono = "584122415696"; // ¡CAMBIA ESTO POR TU NÚMERO REAL!
+const miTelefono = "584122415696"; // ¡CAMBIA AQUÍ!
 
 let numeroElegido = null;
 
@@ -10,13 +10,13 @@ const contenedor = document.getElementById('contenedor-rifa');
 const capaPago = document.getElementById('capa-pago');
 const displayNum = document.getElementById('num-pago');
 
-// Verificar elementos
-if (!contenedor) console.error('Error: No se encontró el contenedor de números');
-if (!capaPago) console.error('Error: No se encontró el modal de pago');
-if (!displayNum) console.error('Error: No se encontró el display del número');
-
 // Crear números
 function crearNumeros() {
+    if (!contenedor) {
+        console.error('No existe el contenedor');
+        return;
+    }
+    
     contenedor.innerHTML = '';
     
     for (let i = 1; i <= totalNumeros; i++) {
@@ -34,8 +34,7 @@ function crearNumeros() {
         
         contenedor.appendChild(div);
     }
-    
-    console.log(`✅ Creados ${totalNumeros} números`);
+    console.log('Números creados:', totalNumeros);
 }
 
 // Seleccionar número
@@ -45,35 +44,17 @@ function seleccionarNumero(num, elemento) {
     });
     
     elemento.classList.add('seleccionado');
-    
-    elemento.style.animation = 'none';
-    elemento.offsetHeight;
-    elemento.style.animation = 'shake 0.3s ease';
-    
-    setTimeout(() => {
-        abrirPago(num);
-    }, 150);
+    abrirPago(num);
 }
 
 function abrirPago(num) {
     numeroElegido = num;
     if (displayNum) displayNum.innerText = num;
-    
-    if (capaPago) {
-        capaPago.classList.remove('oculto');
-        
-        const numGrande = document.querySelector('.numero-seleccionado-grande');
-        if (numGrande) {
-            numGrande.style.animation = 'none';
-            numGrande.offsetHeight;
-            numGrande.style.animation = 'pulse 0.5s ease';
-        }
-    }
+    if (capaPago) capaPago.classList.remove('oculto');
 }
 
 function cerrarPago() {
     if (capaPago) capaPago.classList.add('oculto');
-    
     document.querySelectorAll('.numero.seleccionado').forEach(el => {
         el.classList.remove('seleccionado');
     });
@@ -81,21 +62,18 @@ function cerrarPago() {
 
 function irAWhatsapp() {
     if (!numeroElegido) {
-        alert('❌ Error: No has seleccionado ningún número');
+        alert('Selecciona un número primero');
         return;
     }
     
     const msg = encodeURIComponent(
-        `*RIFA SOLIDARIA - ALCIDES BOLÍVAR*\n\n` +
-        `¡Hola! Quiero comprar el número *${numeroElegido}*.\n\n` +
-        `Ya realicé el pago de $1 (Bs equivalente).\n` +
-        `Aquí adjunto el comprobante.\n\n` +
-        `Quedo atento a la confirmación. ¡Gracias!`
+        `*RIFA SOLIDARIA*\n\n` +
+        `Quiero el número *${numeroElegido}*.\n` +
+        `Ya pagué. Adjunto comprobante.`
     );
     
     window.open(`https://wa.me/${miTelefono}?text=${msg}`, '_blank');
     cerrarPago();
-    alert(`✅ Mensaje preparado para el número ${numeroElegido}`);
 }
 
 // Buscador
@@ -107,20 +85,12 @@ if (buscador) {
             const el = document.getElementById(`n-${val}`);
             if (el) {
                 el.scrollIntoView({ behavior: "smooth", block: "center" });
-                
-                el.style.transform = 'scale(1.1)';
                 el.style.borderColor = '#25d366';
-                el.style.boxShadow = '0 0 30px #25d366';
-                
-                setTimeout(() => {
-                    el.style.transform = '';
-                    el.style.borderColor = '';
-                    el.style.boxShadow = '';
-                }, 1500);
+                setTimeout(() => el.style.borderColor = '', 1500);
             }
         }
     });
 }
 
-// Iniciar
+// Iniciar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', crearNumeros);
