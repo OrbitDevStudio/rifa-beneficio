@@ -20,11 +20,14 @@ body {
     max-width: 500px; 
     margin: auto; 
 }
-.foto-principal { 
-    width: 100%; 
-    border-radius: 20px; 
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
-    margin-bottom: 20px; 
+.foto-principal {
+    width: 100%;           /* Ocupa el ancho del contenedor */
+    max-width: 450px;      /* Evita que se vea gigante en PC */
+    height: auto;          /* Mantiene la proporción */
+    border-radius: 12px;   /* Bordes suavizados */
+    display: block;        /* Permite centrarla */
+    margin: 0 auto 15px;   /* La centra horizontalmente y da espacio abajo */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Le da profundidad */
 }
 .historia { 
     font-size: 17px; 
