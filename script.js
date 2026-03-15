@@ -10,12 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const contenedor = document.getElementById('contenedor-rifa');
     if (!contenedor) return;
 
+    // Ocultar mensaje de carga
+    const cargando = document.getElementById('cargando');
+    if (cargando) cargando.style.display = 'none';
+
     for (let i = 1; i <= totalNumeros; i++) {
         const div = document.createElement('div');
         div.classList.add('numero');
         div.id = `n-${i}`;
         div.innerText = i;
-div.style.setProperty('--i', i);
+        // Variable CSS para retraso de animación (NUEVO)
+        div.style.setProperty('--i', i);
 
         if (vendidosOficiales.includes(i)) {
             div.classList.add('vendido');
@@ -26,8 +31,12 @@ div.style.setProperty('--i', i);
         }
         contenedor.appendChild(div);
     }
+
+    // Iniciar contador regresivo (NUEVO)
+    iniciarContador();
 });
 
+// Función para seleccionar número
 function seleccionarNumero(num) {
     // Quitar selección anterior
     document.querySelectorAll('.numero.seleccionado').forEach(el => {
@@ -41,9 +50,20 @@ function seleccionarNumero(num) {
     // Abrir modal
     numeroElegido = num;
     document.getElementById('num-pago').innerText = num;
+
+    // Mensaje especial según el número (NUEVO)
+    const mensajeEspecial = document.getElementById('mensaje-especial');
+    if (mensajeEspecial) {
+        if (num === 1000) mensajeEspecial.innerText = '🎉 ¡Último número! 🎉';
+        else if (num % 100 === 0) mensajeEspecial.innerText = '✨ Número redondo ✨';
+        else if (num === 7 || num === 77 || num === 777) mensajeEspecial.innerText = '🍀 Número de la suerte 🍀';
+        else mensajeEspecial.innerText = '';
+    }
+
     document.getElementById('capa-pago').classList.remove('oculto');
 }
 
+// Cerrar modal de pago
 function cerrarPago() {
     document.getElementById('capa-pago').classList.add('oculto');
     document.querySelectorAll('.numero.seleccionado').forEach(el => {
@@ -51,6 +71,7 @@ function cerrarPago() {
     });
 }
 
+// Ir a WhatsApp con mensaje
 function irAWhatsapp() {
     if (!numeroElegido) {
         alert('Selecciona un número primero');
@@ -83,5 +104,40 @@ if (buscador) {
                 }, 1500);
             }
         }
+    });
+}
+
+// CONTADOR REGRESIVO (NUEVO)
+function iniciarContador() {
+    // CAMBIA ESTA FECHA A LA DE TU SORTEO
+    const fechaSorteo = new Date('2026-04-15T20:00:00'); // Formato: Año-Mes-DíaTHora:Minutos
+    const intervalo = setInterval(() => {
+        const ahora = new Date();
+        const diferencia = fechaSorteo - ahora;
+        const contadorElem = document.getElementById('contador');
+        if (!contadorElem) {
+            clearInterval(intervalo);
+            return;
+        }
+        if (diferencia < 0) {
+            contadorElem.innerText = '¡Sorteo realizado!';
+            clearInterval(intervalo);
+            return;
+        }
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+        contadorElem.innerText = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }, 1000);
+}
+
+// COPIAR DATOS BANCARIOS (NUEVO)
+function copiarDatos() {
+    const datos = `Banco: 0102 (Venezuela)\nCédula: V-12.345.678\nTeléfono: 0412-2415696\nMonto: $1 (cambio del día)`;
+    navigator.clipboard.writeText(datos).then(() => {
+        alert('Datos copiados al portapapeles');
+    }).catch(() => {
+        alert('No se pudo copiar, selecciona manualmente');
     });
 }
