@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rifa Solidaria - Elige tu número</title>
-    <!-- Mismas fuentes modernas -->
+    <!-- Fuentes modernas -->
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=inter@400,500,600,700,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS (¡IMPORTANTE!) -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="pagina-rifa">
@@ -29,13 +31,13 @@
             <i class="fas fa-star"></i>
         </h1>
         
-        <!-- BUSCADOR MEJORADO -->
+        <!-- BUSCADOR -->
         <div class="buscador-wrapper">
             <i class="fas fa-search"></i>
             <input type="number" id="buscador" placeholder="Busca tu número (1-1000)" min="1" max="1000">
         </div>
         
-        <!-- LEYENDAS DE ESTADO -->
+        <!-- LEYENDAS -->
         <div class="estado-leyendas">
             <div class="leyenda">
                 <span class="cuadro disponible"></span>
@@ -53,10 +55,10 @@
     </header>
 
     <main>
-        <!-- CONTENEDOR DE NÚMEROS (GRID) -->
+        <!-- CONTENEDOR DE NÚMEROS -->
         <div id="contenedor-rifa" class="numeros-grid"></div>
 
-        <!-- MODAL DE PAGO MEJORADO -->
+        <!-- MODAL DE PAGO -->
         <div id="capa-pago" class="modal-estructura oculto">
             <div class="capa-oscura" onclick="cerrarPago()"></div>
             <div class="tarjeta-mensaje glass-effect pago-card">
