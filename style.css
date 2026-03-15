@@ -6,8 +6,6 @@
     --danger: #ff6b6b;
     --dark: #001a4d;
     --light: #f0f8ff;
-    --glass-bg: rgba(255, 255, 255, 0.15);
-    --glass-border: rgba(255, 255, 255, 0.2);
 }
 
 * {
@@ -22,10 +20,9 @@ body {
     min-height: 100vh;
     color: #333;
     line-height: 1.6;
-    position: relative;
 }
 
-/* MODAL ESQUINA */
+/* ===== MODAL ESQUINA ===== */
 .modal-esquina {
     position: fixed;
     bottom: 30px;
@@ -36,8 +33,10 @@ body {
 
 .modal-esquina .tarjeta-mensaje {
     max-width: 320px;
-    margin: 0;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
 }
 
 @keyframes slideInRight {
@@ -45,77 +44,53 @@ body {
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* HEADER INICIO */
+/* ===== HEADER INICIO ===== */
 .inicio-header {
-    position: relative;
     height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    overflow: hidden;
-}
-
-.inicio-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+    background: linear-gradient(45deg, #003399, #001a4d, #FFD700);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    z-index: -1;
 }
 
 .header-content {
-    position: relative;
-    z-index: 2;
     color: white;
-    animation: fadeInUp 1s ease;
 }
 
 .titulo-gigante {
     font-family: 'Clash Display', sans-serif;
     font-size: 3.5rem;
     font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 10px black;
 }
 
 .titulo-gigante span {
     display: block;
     font-size: 1.8rem;
     font-weight: 400;
-    opacity: 0.9;
 }
 
 .ubicacion {
     font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
 }
 
 .ubicacion i {
-    color: var(--accent);
+    color: #FFD700;
 }
 
-/* CONTENEDOR PRINCIPAL */
+/* ===== CONTENEDOR INICIO ===== */
 .contenedor-inicio {
     max-width: 500px;
-    margin: -80px auto 50px;
-    padding: 40px;
-    position: relative;
-    z-index: 10;
+    margin: -50px auto 30px;
     background: white;
+    padding: 40px;
     border-radius: 30px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
-/* FOTO */
+/* ===== FOTO ===== */
 .seccion-foto {
     text-align: center;
     margin-bottom: 30px;
@@ -127,25 +102,19 @@ body {
 }
 
 .foto-principal {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    object-fit: contain;
-    background: white;
+    object-fit: cover;
     border: 5px solid white;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    transition: transform 0.5s;
-}
-
-.foto-principal:hover {
-    transform: scale(1.05) rotate(5deg);
 }
 
 .foto-badge {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background: var(--success);
+    background: #25d366;
     color: white;
     width: 40px;
     height: 40px;
@@ -153,35 +122,30 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
     border: 3px solid white;
 }
 
 .historia-texto {
-    font-size: 1.1rem;
-    color: #555;
+    background: #f0f8ff;
     padding: 20px;
-    background: #f8f9fa;
     border-radius: 20px;
-    margin-top: 20px;
     font-style: italic;
+    color: #555;
 }
 
 .historia-texto i {
-    color: var(--primary);
+    color: #003399;
     margin-right: 10px;
-    font-size: 1.5rem;
 }
 
-/* BARRA PROGRESO */
+/* ===== BARRA DE PROGRESO ===== */
 .meta-progreso {
     margin: 30px 0;
 }
 
 .meta-titulo {
     font-family: 'Clash Display', sans-serif;
-    font-size: 1.5rem;
-    color: var(--dark);
+    color: #001a4d;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -198,13 +162,12 @@ body {
 
 .barra-llena {
     height: 100%;
-    background: linear-gradient(90deg, var(--success), #128C7E);
+    background: linear-gradient(90deg, #25d366, #128C7E);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 0.9rem;
     transition: width 1s ease;
 }
 
@@ -226,7 +189,7 @@ body {
     font-family: 'Clash Display', sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--primary);
+    color: #003399;
 }
 
 .stat-label {
@@ -234,7 +197,7 @@ body {
     color: #777;
 }
 
-/* BOTONES */
+/* ===== BOTONES ===== */
 .acciones-grid {
     display: grid;
     gap: 15px;
@@ -242,7 +205,7 @@ body {
 }
 
 .btn-principal {
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background: linear-gradient(45deg, #003399, #001a4d);
     color: white;
     border: none;
     padding: 18px;
@@ -261,67 +224,27 @@ body {
 
 .btn-principal:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 51, 153, 0.4);
+    box-shadow: 0 10px 30px rgba(0,51,153,0.4);
 }
 
 .btn-secundario {
     background: transparent;
-    border: 2px dashed var(--primary);
-    color: var(--primary);
+    border: 2px dashed #003399;
+    color: #003399;
     padding: 16px;
     border-radius: 15px;
     font-weight: 600;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
     transition: all 0.3s ease;
 }
 
 .btn-secundario:hover {
-    background: var(--primary);
+    background: #003399;
     color: white;
 }
 
-/* MODALES */
-.modal-estructura {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-}
-
-.oculto {
-    display: none !important;
-}
-
-.capa-oscura {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
-}
-
-.tarjeta-mensaje {
-    position: relative;
-    max-width: 400px;
-    width: 90%;
-    padding: 40px;
-    border-radius: 30px;
-    background: white;
-    animation: slideUp 0.4s ease;
-}
-
-/* PAGINA RIFA */
+/* ===== PÁGINA RIFA ===== */
 .pagina-rifa {
-    background: linear-gradient(135deg, #003399 0%, #001a4d 100%);
     color: white;
 }
 
@@ -339,16 +262,9 @@ body {
 .btn-volver {
     color: white;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
     padding: 10px 20px;
     background: rgba(255,255,255,0.1);
     border-radius: 50px;
-}
-
-.btn-volver:hover {
-    background: rgba(255,255,255,0.2);
 }
 
 .precio-dolar {
@@ -364,7 +280,7 @@ body {
     font-family: 'Clash Display', sans-serif;
     font-size: 2.2rem;
     text-align: center;
-    margin-bottom: 30px;
+    margin: 20px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -375,11 +291,11 @@ body {
     color: #FFD700;
 }
 
-/* BUSCADOR */
+/* ===== BUSCADOR ===== */
 .buscador-wrapper {
     position: relative;
     max-width: 400px;
-    margin: 0 auto 20px;
+    margin: 0 auto;
 }
 
 .buscador-wrapper i {
@@ -398,14 +314,15 @@ body {
     background: rgba(255,255,255,0.1);
     color: white;
     font-size: 1rem;
+    border: 2px solid transparent;
 }
 
 #buscador:focus {
     outline: none;
-    border: 2px solid var(--success);
+    border-color: #25d366;
 }
 
-/* LEYENDAS */
+/* ===== LEYENDAS ===== */
 .estado-leyendas {
     display: flex;
     justify-content: center;
@@ -435,28 +352,28 @@ body {
 }
 
 .cuadro.seleccionado {
-    background: var(--success);
+    background: #25d366;
 }
 
-/* GRID DE NUMEROS - ESTO ES LO CRITICO */
+/* ===== GRID DE NÚMEROS ===== */
 .numeros-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     gap: 15px;
-    padding: 30px;
+    padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .numero {
     aspect-ratio: 1;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
     font-family: 'Clash Display', sans-serif;
     color: white;
@@ -465,27 +382,63 @@ body {
 }
 
 .numero:hover {
-    transform: translateY(-5px) scale(1.05);
-    border-color: var(--success);
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+    transform: scale(1.05);
+    border-color: #25d366;
+    box-shadow: 0 10px 30px rgba(37,211,102,0.3);
 }
 
 .numero.vendido {
-    background: rgba(255, 107, 107, 0.3);
-    border-color: rgba(255, 107, 107, 0.5);
+    background: rgba(255,107,107,0.3);
+    border-color: rgba(255,107,107,0.5);
     color: rgba(255,255,255,0.5);
     cursor: not-allowed;
 }
 
-.numero.seleccionado {
-    background: var(--success);
-    border-color: white;
-    box-shadow: 0 0 30px var(--success);
+.numero.vendido:hover {
+    transform: none;
+    border-color: rgba(255,107,107,0.5);
+    box-shadow: none;
 }
 
-/* MODAL PAGO */
-.pago-card {
-    max-width: 450px;
+.numero.seleccionado {
+    background: #25d366;
+    border-color: white;
+    box-shadow: 0 0 30px #25d366;
+}
+
+/* ===== MODAL DE PAGO ===== */
+.modal-estructura {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.oculto {
+    display: none !important;
+}
+
+.capa-oscura {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+}
+
+.tarjeta-mensaje {
+    position: relative;
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 400px;
+    width: 90%;
+    color: #333;
 }
 
 .pago-header {
@@ -495,18 +448,17 @@ body {
 
 .pago-header i {
     font-size: 4rem;
-    color: var(--success);
+    color: #25d366;
 }
 
 .numero-seleccionado-grande {
     font-family: 'Clash Display', sans-serif;
     font-size: 5rem;
     font-weight: 800;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background: linear-gradient(45deg, #003399, #001a4d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1;
-    margin: 10px 0;
 }
 
 .detalles-banco {
@@ -514,7 +466,14 @@ body {
     border-radius: 20px;
     padding: 20px;
     margin: 20px 0;
-    color: #333;
+}
+
+.detalles-banco h4 {
+    color: #001a4d;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .banco-grid {
@@ -532,10 +491,10 @@ body {
 
 .banco-row.total {
     border-bottom: none;
-    font-size: 1.2rem;
+    border-top: 2px solid #003399;
     margin-top: 10px;
     padding-top: 15px;
-    border-top: 2px solid var(--primary);
+    font-weight: bold;
 }
 
 .pago-acciones {
@@ -543,31 +502,27 @@ body {
     gap: 10px;
 }
 
-/* ANIMACIONES */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+    .titulo-gigante {
+        font-size: 2.5rem;
+    }
+    .titulo-gigante span {
+        font-size: 1.3rem;
+    }
+    .rifa-titulo {
+        font-size: 1.8rem;
+    }
     .numeros-grid {
         grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
         gap: 10px;
-        padding: 20px;
+        padding: 15px;
     }
-    
     .modal-esquina {
         bottom: 20px;
         right: 20px;
         left: 20px;
     }
-    
     .modal-esquina .tarjeta-mensaje {
         max-width: 100%;
     }
