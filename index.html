@@ -14,18 +14,9 @@
         <p>Valencia, Carabobo</p>
     </header>
 
-    <div id="bienvenida-modal" class="capa-oscura" style="display: none;">
-        <div class="tarjeta-bienvenida">
-            <div class="icono-corazon">❤️</div>
-            <h2>¡Gracias por visitarnos!</h2>
-            <p>Esta rifa es para costear la prótesis de pierna de un gran guerrero en Alcides Bolivar.</p>
-            <button class="btn-entendido" onclick="cerrarBienvenida()">¡Quiero ayudar!</button>
-        </div>
-    </div>
-
     <main class="contenedor-inicio">
         <section class="seccion-foto">
-            <img src="img/beneficiario.jpg" alt="Campaña Solidaria" class="foto-principal">
+            <img src="img/beneficiario.png" alt="Campaña Solidaria" class="foto-principal">
             <div class="historia">
                 <p>Ayúdanos con la prótesis de pierna. Cada número es una nueva oportunidad para volver a caminar.</p>
             </div>
@@ -63,16 +54,14 @@
     </div>
 
     <script>
-        // Función para abrir el modal de donar
         function abrirDonar() {
             document.getElementById('modal-donar').style.display = 'block';
         }
-        // Función para cerrar el modal de donar
         function cerrarDonar() {
             document.getElementById('modal-donar').style.display = 'none';
         }
         
-        // ESTO HACE QUE SE ABRA SOLO AL CARGAR
+        // SI QUIERES QUE NO SE ABRA SOLO: Borra las siguientes 3 líneas
         window.onload = function() {
             abrirDonar();
         };
